@@ -4,11 +4,14 @@ $(document).ready(function(){
     var signOfStress = 0;
     var healthSymptoms = 0;
     var copingMethod = 0;
-    var questions = [signOfStress, healthSymptoms, copingMethod];
+    var questions = ['signOfStress', 'healthSymptoms', 'copingMethod'];
     for(var i = 0; i < questions.length; i++) {
       $(`input:checkbox[name=${questions[i]}]:checked`).each(function(){
-        questions[i] += 1;
-        console.log(questions[i]);
+        // questions[i] +=;
+        console.log(questions[i];
+        if (questions[0] > 4 && questions[1] <= 2 && questions[2] > 4) {
+          $("#recommendation").append("<p>It's not stress related. You should see your physician.</p>");
+        }
       })
     }
     // This is working with empty array!
@@ -25,9 +28,9 @@ $(document).ready(function(){
     //   copingMethod.push(checkedCopingMethod);
     // });
 
-    if (signOfStress > 4 && healthSymptoms <= 2 && copingMethod > 4) {
-      $("#recommendation").append("<p>It's not stress related. You should see your physician.</p>");
-    } else if (signOfStress > 3 && copingMethod > 4) {
+    // if (signOfStress > 4 && healthSymptoms <= 2 && copingMethod > 4) {
+    //   $("#recommendation").append("<p>It's not stress related. You should see your physician.</p>");
+     if (signOfStress > 3 && copingMethod > 4) {
       $("#recommendation").append("<p>Great job. You're trying to dealing with your stress.</p>");
     } else if (signOfStress > 3 && healthSymptoms > 4 ) {
       $("#recommendation").append("<p>Let's work out more.</p>");
